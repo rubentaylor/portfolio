@@ -452,6 +452,33 @@ article .icon {
 }
 .project-img {
     width: 100%; 
-    height: 580px; 
+    height: 530px; 
     object-fit: cover; 
+}
+
+
+
+
+/* Tags container */
+.tags-container {
+    margin-top: 10px; /* Add more space between project title and tags */
+    margin-bottom: 10px; /* Add more space between tags and button */
+}
+
+/* Individual tag styles */
+.tag {
+    display: inline-block;
+    background-color:  #dce2e7; /* Light green with transparency */
+    color: #333; /* Text color */
+    padding: 5px 10px;
+    border-radius: 20px; /* Rounded corners */
+    margin-right: 10px; /* Spacing between tags */
+    font-size: 14px; /* Font size */
+}
+
+/* Hover effect for tags */
+.tag:hover {
+    background-color: rgb(53, 53, 53); 
+    cursor: default;
+    color: #fff;
 }
