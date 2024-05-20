@@ -356,6 +356,8 @@ article .icon {
     height: 90%;
  }
 
+
+
  .project-title {
     margin: 1rem;
     color: black;
@@ -482,3 +484,33 @@ article .icon {
     cursor: default;
     color: #fff;
 }
+
+/* projects wrapper */
+#projects .about-containers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    justify-items: center;
+}
+
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200vh; /* Adjust the height as needed */
+    padding: 0 10%; /* Adjust horizontal padding */
+}
+
+
+
+#projects .details-container {
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    margin: 150px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+/* end of projects wrapper */
