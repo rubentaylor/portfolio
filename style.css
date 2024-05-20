@@ -330,6 +330,7 @@ section {
     justify-content: space-around;
 }
 
+
 article {
     display: flex;
     width: 10rem;
@@ -355,8 +356,6 @@ article .icon {
     width: 90%;
     height: 90%;
  }
-
-
 
  .project-title {
     margin: 1rem;
@@ -514,3 +513,15 @@ article .icon {
 }
 
 /* end of projects wrapper */
+
+.project2-container .article-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.project2-container .article-container img {
+    max-height: 650px;
+    max-width: 100%;
+    object-fit: inherit;
+}
