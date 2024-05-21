@@ -346,6 +346,9 @@ article .icon {
  #projects {
     position: relative;
  }
+ #experience, #projects {
+    margin-bottom: -3rem; 
+}
  .color-container {
     border-color: rgb(163, 163, 163);
     background-color: rgb(250, 250, 250);
@@ -525,3 +528,4 @@ article .icon {
     max-width: 100%;
     object-fit: inherit;
 }
+
