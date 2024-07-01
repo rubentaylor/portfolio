@@ -49,7 +49,7 @@
     </nav>
     <section id="profile">
         <div class="section__pic-container">
-            <img src="./assets/about-pic.png" alt="Ruben Taylor Profile Picture" srcset="">
+            <img src="./assets/about-pic.png" alt="Ruben Taylor Profile Picture" class= "profile-pic" srcset="">
         </div>
         <div class="section__text">
             <p class="section__text__p1">Hello, I'm</p>
@@ -61,7 +61,7 @@
             </div>
             <div id="socials-container">
                 <img src="./assets/linkedin.png" alt="My LinkedIn Profile" class="icon" onclick="location.href='https://www.linkedin.com/in/ruben-taylor/'">
-                <h2 onclick="location.href='https://www.linkedin.com/in/ruben-taylor/'">/ruben-taylor</h2 >
+                <h2 onclick="location.href='https://www.linkedin.com/in/ruben-taylor/'">/ruben-taylor</h2>
                 <img src="./assets/github.png" alt="My Github Profile" class="icon" onclick="location.href='https://github.com/rubentaylor'">
                 <h2 onclick="location.href='https://github.com/rubentaylor'">/rubentaylor</h2>
             </div>
@@ -270,5 +270,11 @@
         <p>Copyright &#169; 2024 Ruben Taylor. All Rights Reserved.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+        document.getElementById('darkmode-input').addEventListener('change', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+    
 </body>
 </html>
