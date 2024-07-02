@@ -46,7 +46,7 @@ label:after {
     transition: 0.3s;
 }
 
-input {
+input.darkmode-input[type="checkbox"]{
     width: 0;
     height: 0;
     visibility: hidden;
@@ -810,3 +810,68 @@ body.dark-mode #socials-container img {
 body.dark-mode .contact-info-upper-container img {
     filter: invert(1);
 }
+/* Form */
+/*
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.container .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.container .form-group .field-label {
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: bold;
+}
+
+
+.container .form-group input[type="text"],
+.container .form-group input[type="email"],
+.container .form-group textarea {
+    width: calc(100% - 1.5rem);
+    padding: 0.75rem;
+    border: 1px solid #ddd; 
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease; 
+}
+
+
+.container .form-group input[type="text"]:focus,
+.container .form-group input[type="email"]:focus,
+.container .form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25); 
+}
+
+.container .form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+.container button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.container button:hover {
+    background: #555;
+}
+
+/*
