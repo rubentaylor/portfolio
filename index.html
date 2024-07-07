@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media.css">
     <link rel="shortcut icon" href="./assets/r-letter.ico" />
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "slO0qW5WfM4xRxicW",
+        });
+    })();
+    </script>
+
 </head>
 <body>
     <nav id="desktop-nav">
@@ -243,7 +254,7 @@
     <section id="contact">
         <p class="section__text__p1">Get in Touch</p>
         <h1 class="title">Contact Me!</h1>
-        <!----
+        
         <div class="container">
             <form id="contact-form">
                 <div class="form-group">
@@ -262,15 +273,8 @@
                     <div class="field-label">Message:</div>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit">Send Message</button>
+                <button type="submit" onclick="sendMail()">Send Message</button>
             </form>
-        </div>
-        ---->
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon">
-                <p><a href="mailto:ruben.taylorj@gmail.com">ruben.taylorj@gmail.com</a></p>
-            </div>
         </div>
         <div class="contact-info-upper-container">
             <div class="contact-info-container">
@@ -299,6 +303,6 @@
             document.body.classList.toggle('dark-mode');
         });
     </script>
-    
+
 </body>
 </html>
