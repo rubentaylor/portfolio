@@ -664,7 +664,36 @@ body.dark-mode .tag:hover {
 body.dark-mode .arrow {
     filter: invert(1);
 }
+body.dark-mode .container {
+    background-color: #112240;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.1);
+}
 
+body.dark-mode .container .form-group .field-label {
+    color: #ccd6f6;
+}
+
+body.dark-mode .container .form-group input[type="text"],
+body.dark-mode .container .form-group input[type="email"],
+body.dark-mode .container .form-group textarea {
+    background-color: #233554;
+    border-color: #64ffda;
+    color: #ccd6f6;
+}
+body.dark-mode .container .form-group input[type="text"]:focus,
+body.dark-mode .container .form-group input[type="email"]:focus,
+body.dark-mode .container .form-group textarea:focus {
+    border-color: #64ffda;
+    box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.25);
+}
+body.dark-mode .container button {
+    background-color: #64ffda;
+    color: #0a192f;
+}
+
+body.dark-mode .container button:hover {
+    background-color: #4cd3a9;
+}
 
 body.dark-mode footer {
     background-color: #0a192f;
