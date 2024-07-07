@@ -38,6 +38,12 @@
     .about-containers {
         margin-top: 0;
     }
+    .nav-links {
+        display: none;
+    }
+    footer p {
+        margin-top: 300px;
+    }
 }
 
 
@@ -113,12 +119,10 @@
         white-space: normal; 
         text-overflow: unset; 
     }
-    
-    
+    .nav-links {
+        display: none;
+    }
+    footer p {
+        margin-top: 300px; /* Adjust this value as needed */
+    }
 }
-
-
-
-
-
-
