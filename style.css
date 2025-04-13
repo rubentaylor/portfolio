@@ -35,7 +35,7 @@ body.dark-mode {
 
 body {
     font-family: "Poppins", sans-serif;
-    color: var(--text-color);
+    color: black;
     background-color: var(--background-color);
     transition: all 1s ease;
 }
@@ -120,11 +120,15 @@ input:checked + label svg.sun {
 input:checked + label svg.moon {
     fill: #fff;
 }
+
+/* Paragraph text color */
 p {
-    color: rgb(85, 85, 85)
+    color: var(--text-color);
 }
-h2 {
-    white-space: nowrap;
+
+/* Ensure headings and other text elements are black */
+h1, h2, h3, .title, .logo, .nav-links a, .btn, .project-title, .experience-sub-title {
+    color: black;
 }
 
 /* Transitions */
@@ -981,4 +985,21 @@ body.dark-mode .icon {
 
 body.dark-mode .btn {
     border-color: var(--primary-color);
+}
+
+/* Ensure clickable elements show pointer cursor */
+a, button, input[type="checkbox"], .btn, .icon {
+    cursor: pointer;
+}
+
+/* Remove any cursor: none properties */
+.cursor-light {
+    display: none !important;
+}
+
+/* Remove other cursor light related styles */
+body:not(.dark-mode) .cursor-light, 
+body.dark-mode a:hover ~ .cursor-light, 
+body.dark-mode button:hover ~ .cursor-light {
+    display: none !important;
 }

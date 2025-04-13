@@ -58,18 +58,16 @@ document.addEventListener("DOMContentLoaded", function() {
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-mode');
             darkModeToggle.checked = true;
-            updateParticleColors();
         }
 
         // Handle theme changes
         darkModeToggle.addEventListener('change', function() {
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-            updateParticleColors();
         });
     }
 
-    // Initialize particles with original settings
+    // Initialize particles
     particlesJS("particles-js", {
         particles: {
             number: { 
