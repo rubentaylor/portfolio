@@ -50,24 +50,20 @@ document.addEventListener("DOMContentLoaded", function() {
         form.addEventListener("submit", sendMail);
     }
 
-    // Theme toggle functionality with localStorage
     const darkModeToggle = document.getElementById('darkmode-input');
     if (darkModeToggle) {
-        // Load saved theme
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-mode');
             darkModeToggle.checked = true;
         }
 
-        // Handle theme changes
         darkModeToggle.addEventListener('change', function() {
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
     }
 
-    // Initialize particles
     particlesJS("particles-js", {
         particles: {
             number: { 
