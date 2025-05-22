@@ -170,3 +170,94 @@ document.addEventListener("DOMContentLoaded", function() {
         retina_detect: true
     });
 });
+
+// Projects Section
+document.addEventListener('DOMContentLoaded', () => {
+    const projectContainer = document.querySelector('.project-container');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const dotsContainer = document.querySelector('.project-dots');
+    
+    let currentIndex = 0;
+    
+    // Create dots
+    projectCards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => navigateToProject(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.dot');
+    
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+    
+    function navigateToProject(index) {
+        currentIndex = index;
+        const scrollPosition = projectCards[index].offsetLeft - 
+            (projectContainer.offsetWidth - projectCards[index].offsetWidth) / 2;
+        projectContainer.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+        updateDots();
+    }
+    
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + projectCards.length) % projectCards.length;
+        navigateToProject(currentIndex);
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % projectCards.length;
+        navigateToProject(currentIndex);
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevBtn.click();
+        } else if (e.key === 'ArrowRight') {
+            nextBtn.click();
+        }
+    });
+    
+    // Touch navigation
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    projectContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+    
+    projectContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const swipeDistance = touchEndX - touchStartX;
+        
+        if (Math.abs(swipeDistance) > 50) {
+            if (swipeDistance > 0) {
+                prevBtn.click();
+            } else {
+                nextBtn.click();
+            }
+        }
+    });
+    
+    // Update dots on scroll
+    let scrollTimeout;
+    projectContainer.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            const scrollPosition = projectContainer.scrollLeft;
+            const containerWidth = projectContainer.offsetWidth;
+            currentIndex = Math.round(scrollPosition / containerWidth);
+            updateDots();
+        }, 150);
+    });
+});
