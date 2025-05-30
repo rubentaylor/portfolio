@@ -53,7 +53,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const darkModeToggle = document.getElementById('darkmode-input');
     if (darkModeToggle) {
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
+        if (savedTheme === 'light') {
+            document.body.classList.remove('dark-mode');
+            darkModeToggle.checked = false;
+        } else {
+            // Default to dark mode
             document.body.classList.add('dark-mode');
             darkModeToggle.checked = true;
         }
@@ -61,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
         darkModeToggle.addEventListener('change', function() {
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            updateParticleColors();  // Update particles when theme changes
         });
     }
 
