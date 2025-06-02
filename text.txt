@@ -1,0 +1,343 @@
+RIGHT-SIDE NAVIGATION BAR IMPLEMENTATION GUIDE
+
+1. HTML STRUCTURE
+----------------
+Add this in your <body> tag:
+
+<nav class="side-nav">
+    <div class="nav-logo">RT</div>
+    <div class="nav-links">
+        <a href="#home" class="nav-link active" data-section="home">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#about" class="nav-link" data-section="about">
+            <i class="fas fa-user"></i>
+            <span>About</span>
+        </a>
+        <a href="#experience" class="nav-link" data-section="experience">
+            <i class="fas fa-briefcase"></i>
+            <span>Experience</span>
+        </a>
+        <a href="#projects" class="nav-link" data-section="projects">
+            <i class="fas fa-code"></i>
+            <span>Projects</span>
+        </a>
+        <a href="#contact" class="nav-link" data-section="contact">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </div>
+    <div class="nav-footer">
+        <div class="darkmode-toggle">
+            <input type="checkbox" id="darkmode-input" class="darkmode-input" checked>
+            <label for="darkmode-input" class="darkmode-label">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </label>
+        </div>
+    </div>
+</nav>
+
+2. CSS VARIABLES (ROOT)
+----------------------
+Add these CSS variables to your :root selector:
+
+:root {
+    /* Colors */
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f4f6;
+    --border-color: #e5e7eb;
+    
+    /* Typography */
+    --font-family: 'Inter', sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    
+    /* Spacing */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-12: 3rem;
+    --spacing-16: 4rem;
+    
+    /* Transitions */
+    --transition-base: all 0.3s ease;
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+3. NAVIGATION CSS
+----------------
+Add this CSS for the navigation:
+
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    right: 0;  /* Changed from left to right */
+    top: 0;
+    height: 100vh;
+    width: 5rem;
+    background-color: var(--bg-secondary);
+    border-left: 1px solid var(--border-color);  /* Changed from border-right */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-4) 0;
+    transition: width 0.3s ease;
+    z-index: 1000;
+}
+
+.side-nav:hover {
+    width: 16rem;
+}
+
+.nav-logo {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-8);
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    width: 100%;
+}
+
+.nav-link {
+    position: relative;
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-link i {
+    min-width: 1.5rem;
+    font-size: var(--font-size-lg);
+}
+
+.nav-link span {
+    margin-left: var(--spacing-3);
+    opacity: 0;
+    transition: var(--transition-base);
+}
+
+.side-nav:hover .nav-link span {
+    opacity: 1;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+    background-color: var(--bg-primary);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    right: 0;  /* Changed from left */
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--primary-color);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    transform: scaleY(1);
+}
+
+.nav-footer {
+    margin-top: auto;
+    width: 100%;
+    padding: var(--spacing-4);
+}
+
+/* Dark Mode Toggle */
+.darkmode-toggle {
+    display: flex;
+    justify-content: center;
+}
+
+.darkmode-input {
+    display: none;
+}
+
+.darkmode-label {
+    width: 3rem;
+    height: 1.5rem;
+    position: relative;
+    display: block;
+    background: var(--text-secondary);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.darkmode-label i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--font-size-sm);
+    transition: var(--transition-base);
+}
+
+.darkmode-label .fa-sun {
+    right: 0.25rem;
+    color: #fbbf24;
+}
+
+.darkmode-label .fa-moon {
+    left: 0.25rem;
+    color: #ffffff;
+    opacity: 0;
+}
+
+.darkmode-input:checked + .darkmode-label {
+    background: var(--primary-color);
+}
+
+.darkmode-input:checked + .darkmode-label .fa-sun {
+    opacity: 0;
+}
+
+.darkmode-input:checked + .darkmode-label .fa-moon {
+    opacity: 1;
+}
+
+4. JAVASCRIPT
+------------
+Add this JavaScript for navigation functionality:
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Navigation Links
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.section');
+    let currentSection = 'home';
+
+    // Intersection Observer for section visibility
+    const observerOptions = {
+        root: null,
+        threshold: 0.2,
+        rootMargin: '-20% 0px -20% 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                updateActiveLink(id);
+                currentSection = id;
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // Update active navigation link
+    function updateActiveLink(sectionId) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').slice(1) === sectionId) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Smooth scroll to section
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').slice(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const offset = 0;
+                const targetPosition = targetSection.offsetTop - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                updateActiveLink(targetId);
+                currentSection = targetId;
+            }
+        });
+    });
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkmode-input');
+    const body = document.body;
+
+    darkModeToggle.addEventListener('change', () => {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+    });
+
+    // Check for saved dark mode preference
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'true') {
+        body.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+    } else if (savedDarkMode === 'false') {
+        body.classList.remove('dark-mode');
+        darkModeToggle.checked = false;
+    }
+});
+
+5. REQUIRED EXTERNAL RESOURCES
+----------------------------
+Add these in your <head> tag:
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Inter font from Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+6. MAIN CONTENT ADJUSTMENT
+-------------------------
+Add this CSS to adjust your main content:
+
+main {
+    margin-right: 5rem;  /* Changed from margin-left */
+    padding: var(--spacing-8);
+    min-height: 100vh;
+    position: relative;
+    overflow-y: auto;
+}
+
+7. DARK MODE STYLES
+------------------
+Create a separate dark-mode.css file with these styles:
+
+.dark-mode {
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --border-color: #374151;
+}
+
+Note: Make sure all your sections have the class "section" and corresponding IDs matching the navigation links (home, about, experience, projects, contact). 
