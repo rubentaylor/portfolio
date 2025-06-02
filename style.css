@@ -1,13 +1,43 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+/* Base Styles and CSS Variables */
+:root {
+    --primary-color: rgb(53, 53, 53);
+    --secondary-color: rgb(163, 163, 163);
+    --text-color: rgb(85, 85, 85);
+    --background-color: rgb(250, 250, 250);
+    --hover-color: rgba(0, 0, 0, 0.2);
+    --transition-speed: 300ms;
+    --border-radius: 2rem;
+    --container-padding: 1.5rem;
+    --section-margin: 2rem;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --primary-color: #64ffda;
+    --secondary-color: #233554;
+    --text-color: #8892b0;
+    --background-color: #0a192f;
+    --hover-color: rgba(100, 255, 218, 0.1);
+}
+
+/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    transition: background-color 1s ease,
+                color 1s ease,
+                border-color 1s ease,
+                box-shadow 1s ease;
 }
 
 body {
     font-family: "Poppins", sans-serif;
+    color: black;
+    background-color: var(--background-color);
+    transition: all 1s ease;
 }
 
 html {
@@ -90,11 +120,15 @@ input:checked + label svg.sun {
 input:checked + label svg.moon {
     fill: #fff;
 }
+
+/* Paragraph text color */
 p {
-    color: rgb(85, 85, 85)
+    color: var(--text-color);
 }
-h2 {
-    white-space: nowrap;
+
+/* Ensure headings and other text elements are black */
+h1, h2, h3, .title, .logo, .nav-links a, .btn, .project-title, .experience-sub-title {
+    color: black;
 }
 
 /* Transitions */
@@ -246,11 +280,16 @@ section {
     margin: auto 0;
 }
 
-.section__pic-container .profile-pic{
+.section__pic-container .profile-pic {
     border-radius: 50%;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.4), 
-                -10px -10px 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.section__pic-container .profile-pic:hover {
+    transform: scale(1.05);
 }
 
 .section__text {
@@ -304,10 +343,15 @@ section {
 
 .btn {
     font-weight: 600;
-    transition: all 300 ms ease;
+    transition: all 300ms ease;
     padding: 1rem;
     width: 8rem;
     border-radius: 2rem;
+    transform: scale(1);
+}
+
+.btn:hover {
+    transform: scale(1.05);
 }
 
 .btn-color-1, .btn-color-2{
@@ -421,84 +465,227 @@ article .icon {
 }
 
 /* Projects */
- #projects {
+#projects {
     position: relative;
- }
- #experience, #projects {
-    margin-bottom: -3rem; 
+    padding: var(--container-padding);
+    margin-top: var(--section-margin);
 }
- .color-container {
-    border-color: rgb(163, 163, 163);
-    background-color: rgb(250, 250, 250);
- }
 
- .project-img {
-    border-radius: 2rem;
-    width: 90%;
-    height: 90%;
- }
+.projects-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 2rem 0;
+}
 
- .project-title {
-    margin: 1rem;
-    color: black;
- }
+.project-container {
+    display: flex;
+    gap: 2rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
- .project-btn {
-    color: black;
-    border-color: rgb(163, 163, 163);
- }
+.project-card {
+    min-width: 100%;
+    scroll-snap-align: center;
+    background: var(--background-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
+}
 
- 
- /* Contact */
+.project-card:hover {
+    transform: translateY(-5px);
+}
 
- #contact {
+.project-image-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-img:hover {
+    transform: scale(1.05);
+}
+
+/* Custom styling for BiteScript image */
+.bitescript-img {
+    object-position: center 30%;  /* Adjust the vertical position */
+    margin-top: 20px;  /* Add some top margin */
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-description {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--background-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.nav-btn:hover {
+    background: var(--hover-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--text-color);
+    transition: stroke 0.3s ease;
+}
+
+.nav-btn:hover svg {
+    stroke: var(--primary-color);
+}
+
+body.dark-mode .nav-btn {
+    background: var(--secondary-color);
+}
+
+body.dark-mode .nav-btn svg {
+    stroke: var(--primary-color);
+}
+
+body.dark-mode .nav-btn:hover {
+    background: var(--hover-color);
+}
+
+.prev-btn {
+    left: 1rem;
+}
+
+.next-btn {
+    right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.project-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Contact */
+
+#contact {
     display: flex;
     justify-content: center;
     flex-direction: column;
     height: 70hvh;
     padding-top: 50px;
- }
+}
 
- .contact-info-upper-container {
+.contact-info-upper-container {
     display: flex;
     justify-content: center;
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
-    background:(250, 250, 250);
+    background: var(--background-color);
     margin: 2rem auto;
     padding: 0.5rem;
- }
+}
 
- .contact-info-container {
+.contact-info-container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     margin: 1rem;
- }
+}
 
- .contact-info-container p {
+.contact-info-container p {
     font-size: larger;
- }
+    margin: 0;
+    color: var(--text-color);
+}
 
- .contact-icon {
+.contact-info-upper-container .contact-info-container p {
+    color: var(--text-color);
+}
+
+.contact-icon {
     cursor: default;
- }
+}
 
- .email-icon {
+.email-icon {
     height: 2.5rem;
- }
+}
 
- /* footer */
- footer {
+/* footer */
+footer {
     height: 26vh;
     margin: 0 1rem;
- }
+}
 
- footer p {
+footer p {
     text-align: center;
- }
+}
 /* Base button styles */
 .btn {
     display: inline-flex;
@@ -533,14 +720,6 @@ article .icon {
     margin-right: 5px;
     order: -1; 
 }
-.project-img {
-    width: 100%; 
-    height: 530px; 
-    object-fit: cover; 
-}
-
-
-
 
 /* Tags container */
 .tags-container {
@@ -574,38 +753,17 @@ article .icon {
     justify-items: center;
 }
 
-
-#projects {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 200vh; /* Adjust the height as needed */
-    padding: 0 10%; /* Adjust horizontal padding */
+@media (max-width: 1200px) {
+    .project-container {
+        grid-template-columns: minmax(350px, 700px);
+        gap: 2rem;
+    }
 }
 
-
-
-#projects .details-container {
-    width: calc(100% - 40px);
-    box-sizing: border-box;
-    margin: 150px;
-    margin-top: 20px;
-    margin-bottom: 0px;
-}
-
-/* end of projects wrapper */
-
-.project2-container .article-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-}
-
-.project2-container .article-container img {
-    max-height: 650px;
-    max-width: 100%;
-    object-fit: inherit;
+@media (max-width: 768px) {
+    .project-container {
+        grid-template-columns: minmax(280px, 500px);
+    }
 }
 
 /* Dark Mode */
@@ -718,7 +876,7 @@ body.dark-mode .darkmode-label svg.moon {
     fill: #ccd6f6;
 }
 body {
-    transition: background-color 1s ease, color 1s ease;
+    transition: all 1s ease;
 }
 
 .logo,
@@ -912,4 +1070,61 @@ body.dark-mode .contact-info-upper-container img {
     width: 100%;
     height: 100%;
     z-index: -1;
+    transition: background-color 1s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    section {
+        margin: 0 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        margin: 0 2rem;
+    }
+    
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Utility Classes */
+.icon {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    right: -5rem;
+    bottom: 2.5rem;
+}
+
+/* Dark Mode Specific Styles */
+body.dark-mode .icon {
+    filter: invert(1);
+}
+
+body.dark-mode .btn {
+    border-color: var(--primary-color);
+}
+
+/* Ensure clickable elements show pointer cursor */
+a, button, input[type="checkbox"], .btn, .icon {
+    cursor: pointer;
+}
+
+/* Remove any cursor: none properties */
+.cursor-light {
+    display: none !important;
+}
+
+/* Remove other cursor light related styles */
+body:not(.dark-mode) .cursor-light, 
+body.dark-mode a:hover ~ .cursor-light, 
+body.dark-mode button:hover ~ .cursor-light {
+    display: none !important;
 }
