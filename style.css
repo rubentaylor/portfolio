@@ -1272,3 +1272,221 @@ body.dark-mode button:hover ~ .cursor-light {
 .darkmode-input:checked + .darkmode-label .fa-moon {
     opacity: 1;
 }
+
+/* Experience Tree Section */
+.exp-tree {
+    position: relative;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px 20px;
+}
+
+/* The main tree  */
+.exp-tree::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, 
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%);
+    transform: translateX(-50%);
+    border-radius: 4px;
+    opacity: 0.3;
+}
+
+/* Branch */
+.exp-branch {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.exp-branch:last-child {
+    margin-bottom: 0;
+}
+
+/* Nodes */
+.exp-node {
+    display: flex;
+    position: relative;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.exp-branch:nth-child(odd) .exp-node {
+    flex-direction: row-reverse;
+    margin-left: 50%;
+    padding-left: 20px;
+}
+
+.exp-branch:nth-child(even) .exp-node {
+    margin-right: 50%;
+    padding-right: 20px;
+}
+
+
+.exp-marker {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 60px;
+}
+
+.exp-dot {
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--bg-primary),
+                0 0 0 6px rgba(37, 99, 235, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-year {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 3px 8px;
+    background-color: rgba(37, 99, 235, 0.1);
+    border-radius: 12px;
+}
+
+.exp-content {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+}
+
+.exp-branch:nth-child(odd) .exp-content::before {
+    right: 100%;
+    border-right-color: var(--bg-secondary);
+}
+
+.exp-branch:nth-child(even) .exp-content::before {
+    left: 100%;
+    border-left-color: var(--bg-secondary);
+}
+
+.exp-content h3 {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.exp-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.exp-duration, .exp-location {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.exp-role {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin: 0;
+}
+
+.exp-node:hover .exp-dot {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px var(--bg-primary),
+                0 0 0 6px var(--primary-color);
+}
+
+.exp-node:hover .exp-content {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.exp-branch::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary-color);
+    opacity: 0.3;
+}
+
+.exp-branch:nth-child(odd)::after {
+    left: calc(50% + 8px);
+}
+
+.exp-branch:nth-child(even)::after {
+    right: calc(50% + 8px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .exp-tree::before {
+        left: 30px;
+    }
+
+    .exp-branch::after {
+        display: none;
+    }
+
+    .exp-node {
+        flex-direction: row !important;
+        gap: 15px;
+    }
+
+    .exp-branch:nth-child(odd) .exp-node,
+    .exp-branch:nth-child(even) .exp-node {
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .exp-marker {
+        min-width: 50px;
+    }
+
+    .exp-content {
+        width: calc(100% - 65px);
+        max-width: none;
+    }
+
+    .exp-content::before {
+        display: none;
+    }
+
+    .exp-branch {
+        margin-left: 30px;
+        margin-bottom: 30px;
+    }
+}
