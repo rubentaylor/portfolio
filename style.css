@@ -386,10 +386,14 @@ body.dark-mode .hero-image::after {
 
 .btn-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; 
     gap: 1rem;
     margin-bottom: 0.75rem;
     margin-top: 0.1rem;
+}
+
+.project-card .btn-container {
+    justify-content: center;
 }
 
 .btn {
