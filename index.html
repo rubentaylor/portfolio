@@ -56,28 +56,35 @@
             </div>
         </div>
     </nav>
-    <section id="profile">
-        <div class="section__text">
-            <p class="section__text__p1">Hello, I'm</p>
-            <h1 class="title">Ruben Taylor</h1>
-            <p class="section__text__p2">Computer Science @ Georgia Tech</p>
-            <div class="btn-container">
-                <button class="btn btn-color-2" onclick="window.open('./assets/Resume.pdf')">Download CV</button>
-                <button class="btn btn-color-1" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Info</button>
+    <section id="home">
+        <div class="split-container">
+            <div class="split-left">
+                <p class="section__text__p1">Hello, I'm</p>
+                <h1 class="title">Ruben Taylor</h1>
+                <p class="section__text__p2">Computer Science @ Georgia Tech</p>
+                <div class="btn-container">
+                    <button class="btn btn-color-2" onclick="window.open('./assets/Resume.pdf')">Download CV</button>
+                    <button class="btn btn-color-1" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Info</button>
+                </div>
+                <div id="socials-container">
+                    <a href="https://www.linkedin.com/in/ruben-taylor/" target="_blank">
+                        <img src="./assets/linkedin.png" alt="My LinkedIn Profile" class="icon">
+                        <h2>/ruben-taylor</h2>
+                    </a>
+                    <a href="https://github.com/rubentaylor" target="_blank">
+                        <img src="./assets/github.png" alt="My Github Profile" class="icon">
+                        <h2>/rubentaylor</h2>
+                    </a>
+                </div>
             </div>
-            <div id="socials-container">
-                <img src="./assets/linkedin.png" alt="My LinkedIn Profile" class="icon" onclick="location.href='https://www.linkedin.com/in/ruben-taylor/'">
-                <h2 onclick="location.href='https://www.linkedin.com/in/ruben-taylor/'">/ruben-taylor</h2>
-                <img src="./assets/github.png" alt="My Github Profile" class="icon" onclick="location.href='https://github.com/rubentaylor'">
-                <h2 onclick="location.href='https://github.com/rubentaylor'">/rubentaylor</h2>
+            <div class="split-right">
+                <div class="hero-image">
+                    <img src="./assets/about-pic.png" alt="Ruben Taylor">
+                </div>
             </div>
-        </div>
-        <div class="section__pic-container">
-            <img src="./assets/about-pic.png" alt="Ruben Taylor Profile Picture" class= "profile-pic" srcset="">
         </div>
     </section>
     <section id="about">
-        <p class="section__text__p1">Want to Know More?</p>
         <h1 class="title">About Me</h1>
         <div class="section-container">
             <div class="section__pic-container">
@@ -107,7 +114,6 @@
         <img src="./assets/arrow.png" alt="Arrow" class="icon arrow" onclick="document.getElementById('experience').scrollIntoView({behavior: 'smooth'})">
     </section>
     <section id="experience">
-        <p class="section__text__p1">Explore My</p>
         <h1 class="title">Experience</h1>
         <div class="exp-tree">
             <div class="exp-branch">
@@ -162,7 +168,6 @@
         <img src="./assets/arrow.png" alt="Arrow" class="icon arrow" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
     </section>
     <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p>
         <h1 class="title">Projects</h1>
         <div class="projects-wrapper">
             <button class="nav-btn prev-btn" aria-label="Previous project">
@@ -249,9 +254,7 @@
         <img src="./assets/arrow.png" alt="Arrow" class="icon arrow" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
     </section>
     <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
         <h1 class="title">Contact Me!</h1>
-        
         <div class="container">
             <form id="contact-form">
                 <div class="form-group">
