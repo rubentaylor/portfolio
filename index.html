@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media.css">
     <link rel="shortcut icon" href="./assets/r-letter.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
@@ -21,66 +22,69 @@
 </head>
 <body class="dark-mode">
     <div id="particles-js"></div>
-    <nav id="desktop-nav">
-        <div class="darkmode-toggle">
-            <input type="checkbox" id="darkmode-input" class="darkmode-input" checked>
-            <label for="darkmode-input" class="darkmode-label">
-                <svg class="sun" viewBox="0 0 24 24">
-                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"/>
-                </svg>
-                <svg class="moon" viewBox="0 0 24 24">
-                    <path d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
-                </svg>
-            </label>
+    <nav class="side-nav">
+        <div class="nav-logo">RT</div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active" data-section="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#about" class="nav-link" data-section="about">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+            <a href="#experience" class="nav-link" data-section="experience">
+                <i class="fas fa-briefcase"></i>
+                <span>Experience</span>
+            </a>
+            <a href="#projects" class="nav-link" data-section="projects">
+                <i class="fas fa-code"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#contact" class="nav-link" data-section="contact">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
         </div>
-       <div class = "logo">Ruben Taylor</div> 
-       <div> 
-        <ul class = "nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-       </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">Ruben Taylor</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="#aboutme" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        <div class="nav-footer">
+            <div class="darkmode-toggle">
+                <input type="checkbox" id="darkmode-input" class="darkmode-input" checked>
+                <label for="darkmode-input" class="darkmode-label">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </label>
             </div>
         </div>
     </nav>
-    <section id="profile">
-        <div class="section__pic-container">
-            <img src="./assets/about-pic.png" alt="Ruben Taylor Profile Picture" class= "profile-pic" srcset="">
-        </div>
-        <div class="section__text">
-            <p class="section__text__p1">Hello, I'm</p>
-            <h1 class="title">Ruben Taylor</h1>
-            <p class="section__text__p2">Computer Science @ Georgia Tech</p>
-            <div class="btn-container">
-                <button class="btn btn-color-2" onclick="window.open('./assets/Resume.pdf')">Download CV</button>
-                <button class="btn btn-color-1" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Info</button>
+    <section id="home">
+        <div class="split-container">
+            <div class="split-left">
+                <p class="section__text__p1">Hello, I'm</p>
+                <h1 class="title">Ruben Taylor</h1>
+                <p class="section__text__p2">Computer Science @ Georgia Tech</p>
+                <div class="btn-container">
+                    <button class="btn btn-color-2" onclick="window.open('./assets/Resume.pdf')">Download CV</button>
+                    <button class="btn btn-color-1" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Info</button>
+                </div>
+                <div id="socials-container">
+                    <a href="https://www.linkedin.com/in/ruben-taylor/" target="_blank">
+                        <img src="./assets/linkedin.png" alt="My LinkedIn Profile" class="icon">
+                        <h2>/ruben-taylor</h2>
+                    </a>
+                    <a href="https://github.com/rubentaylor" target="_blank">
+                        <img src="./assets/github.png" alt="My Github Profile" class="icon">
+                        <h2>/rubentaylor</h2>
+                    </a>
+                </div>
             </div>
-            <div id="socials-container">
-                <img src="./assets/linkedin.png" alt="My LinkedIn Profile" class="icon" onclick="location.href='https://www.linkedin.com/in/ruben-taylor/'">
-                <h2 onclick="location.href='https://www.linkedin.com/in/ruben-taylor/'">/ruben-taylor</h2>
-                <img src="./assets/github.png" alt="My Github Profile" class="icon" onclick="location.href='https://github.com/rubentaylor'">
-                <h2 onclick="location.href='https://github.com/rubentaylor'">/rubentaylor</h2>
+            <div class="split-right">
+                <div class="hero-image">
+                    <img src="./assets/about-pic.png" alt="Ruben Taylor">
+                </div>
             </div>
         </div>
     </section>
     <section id="about">
-        <p class="section__text__p1">Want to Know More?</p>
         <h1 class="title">About Me</h1>
         <div class="section-container">
             <div class="section__pic-container">
@@ -109,93 +113,61 @@
         </div>
         <img src="./assets/arrow.png" alt="Arrow" class="icon arrow" onclick="document.getElementById('experience').scrollIntoView({behavior: 'smooth'})">
     </section>
-<!---
     <section id="experience">
-        <p class="section__text__p1">Explore My</p>
         <h1 class="title">Experience</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Languages</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>Python</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>Java</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>C++</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>C</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>SQL</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>Swift</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>JavaScript</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>HTML/CSS</div>
-                        </article>
+        <div class="exp-tree">
+            <div class="exp-branch">
+                <div class="exp-node">
+                    <div class="exp-marker">
+                        <div class="exp-dot"></div>
+                        <span class="exp-year">2023</span>
+                    </div>
+                    <div class="exp-content">
+                        <h3>Lane Tech College Prep</h3>
+                        <div class="exp-details">
+                            <p class="exp-role">Math Tutor</p>
+                            <span class="exp-duration">August 2022 - June 2023</span>
+                            <span class="exp-location">Chicago, IL</span>
+                        </div>
                     </div>
                 </div>
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Developer Tools</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>Git</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>Docker</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>MySQL</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>LaTeX</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>Windows</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>Linux</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>MacOS</div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience Icon" class="icon">
-                        <div>Visual Studio Code</div>
-                        </article>
+            </div>
+            <div class="exp-branch">
+                <div class="exp-node">
+                    <div class="exp-marker">
+                        <div class="exp-dot"></div>
+                        <span class="exp-year">2024</span>
+                    </div>
+                    <div class="exp-content">
+                        <h3>Franciscan Village</h3>
+                        <div class="exp-details">
+                            <p class="exp-role">Network Engineering Intern</p>
+                            <span class="exp-duration">June 2024 - August 2024</span>
+                            <span class="exp-location">Lemont, IL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="exp-branch">
+                <div class="exp-node">
+                    <div class="exp-marker">
+                        <div class="exp-dot"></div>
+                        <span class="exp-year">2025</span>
+                    </div>
+                    <div class="exp-content">
+                        <h3>Enova International</h3>
+                        <div class="exp-details">
+                            <p class="exp-role">Software Engineering Intern</p>
+                            <span class="exp-duration">June 2025 - August 2025</span>
+                            <span class="exp-location">Chicago, IL</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <img src="./assets/arrow.png" alt="Arrow" class="icon arrow" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
     </section>
--->
     <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p>
         <h1 class="title">Projects</h1>
         <div class="projects-wrapper">
             <button class="nav-btn prev-btn" aria-label="Previous project">
@@ -205,50 +177,6 @@
             </button>
             
             <div class="project-container">
-                <div class="project-card details-container">
-                    <div class="project-image-container">
-                        <img src="./assets/project.png" alt="Android Battery Optimization" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <div class="tags-container">
-                            <span class="tag">Java</span>
-                            <span class="tag">XML</span>
-                        </div>
-                        <h2 class="experience-sub-title project-title">Android Battery Optimization</h2>
-                        <p class="project-description">
-                            A sophisticated Android application focused on optimizing battery life through intelligent background process management and power consumption analysis.
-                        </p>
-                        <div class="btn-container">
-                            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/hexactinal/imposters'">
-                                Github
-                                <img src="./assets/github.png" alt="Github">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card details-container">
-                    <div class="project-image-container">
-                        <img src="./assets/TCP.png" alt="Multi-Threaded TCP Server" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <div class="tags-container">
-                            <span class="tag">C++</span>
-                            <span class="tag">TCP</span>
-                        </div>
-                        <h2 class="experience-sub-title project-title">Multi-Threaded TCP Server</h2>
-                        <p class="project-description">
-                            A high-performance TCP server implementation utilizing multi-threading for concurrent client connections and efficient data handling.
-                        </p>
-                        <div class="btn-container">
-                            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/rubentaylor/TCP-Server'">
-                                Github
-                                <img src="./assets/github.png" alt="Github">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="project-card details-container">
                     <div class="project-image-container">
                         <img src="./assets/bitescript.png" alt="BiteScript Social Platform" class="project-img bitescript-img">
@@ -272,6 +200,48 @@
                         </div>
                     </div>
                 </div>
+                <div class="project-card details-container">
+                    <div class="project-image-container">
+                        <img src="./assets/TCP.png" alt="Multi-Threaded TCP Server" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <div class="tags-container">
+                            <span class="tag">C++</span>
+                            <span class="tag">TCP</span>
+                        </div>
+                        <h2 class="experience-sub-title project-title">Multi-Threaded TCP Server</h2>
+                        <p class="project-description">
+                            A high-performance TCP server implementation utilizing multi-threading for concurrent client connections and efficient data handling.
+                        </p>
+                        <div class="btn-container">
+                            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/rubentaylor/TCP-Server'">
+                                Github
+                                <img src="./assets/github.png" alt="Github">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card details-container">
+                    <div class="project-image-container">
+                        <img src="./assets/project.png" alt="Android Battery Optimization" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <div class="tags-container">
+                            <span class="tag">Java</span>
+                            <span class="tag">XML</span>
+                        </div>
+                        <h2 class="experience-sub-title project-title">Android Battery Optimization</h2>
+                        <p class="project-description">
+                            A sophisticated Android application focused on optimizing battery life through intelligent background process management and power consumption analysis.
+                        </p>
+                        <div class="btn-container">
+                            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/hexactinal/imposters'">
+                                Github
+                                <img src="./assets/github.png" alt="Github">
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <button class="nav-btn next-btn" aria-label="Next project">
@@ -284,9 +254,7 @@
         <img src="./assets/arrow.png" alt="Arrow" class="icon arrow" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
     </section>
     <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me!</h1>
-        
+        <h1 class="title">Contact Me</h1>
         <div class="container">
             <form id="contact-form">
                 <div class="form-group">
@@ -316,6 +284,7 @@
         </div>
 
     </section>
+    <!--
     <footer>
         <nav>
             <div class="nav-links-container">
@@ -329,6 +298,7 @@
         </nav>
         <p>Copyright &#169; 2024 Ruben Taylor. All Rights Reserved.</p>
     </footer>
+    -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 

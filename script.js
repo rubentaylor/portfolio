@@ -21,7 +21,28 @@ function updateParticleColors() {
     }
 }
 
+function initializeDarkMode() {
+    const darkModeToggle = document.getElementById('darkmode-input');
+    const body = document.body;
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'true') {
+        body.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+    } else if (savedDarkMode === 'false') {
+        body.classList.remove('dark-mode');
+        darkModeToggle.checked = false;
+    }
+
+    darkModeToggle.addEventListener('change', () => {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        updateParticleColors();
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
+    initializeDarkMode();
+
     const form = document.querySelector("form");
     const fullName = document.getElementById("name");
     const email = document.getElementById("email");
@@ -50,24 +71,6 @@ document.addEventListener("DOMContentLoaded", function() {
         form.addEventListener("submit", sendMail);
     }
 
-    const darkModeToggle = document.getElementById('darkmode-input');
-    if (darkModeToggle) {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            document.body.classList.remove('dark-mode');
-            darkModeToggle.checked = false;
-        } else {
-            // Default to dark mode
-            document.body.classList.add('dark-mode');
-            darkModeToggle.checked = true;
-        }
-
-        darkModeToggle.addEventListener('change', function() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-            updateParticleColors();  // Update particles when theme changes
-        });
-    }
 
     particlesJS("particles-js", {
         particles: {
@@ -174,9 +177,56 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         retina_detect: true
     });
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+    let currentSection = 'home';
+
+
+    const observerOptions = {
+        root: null,
+        threshold: 0.2,
+        rootMargin: '-20% 0px -20% 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                updateActiveLink(id);
+                currentSection = id;
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    function updateActiveLink(sectionId) {
+        navLinks.forEach(link => {
+            const linkSection = link.getAttribute('data-section');
+            if (linkSection === sectionId) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('data-section');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
 });
 
-// Projects Section
 document.addEventListener('DOMContentLoaded', () => {
     const projectContainer = document.querySelector('.project-container');
     const prevBtn = document.querySelector('.prev-btn');
@@ -185,8 +235,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const dotsContainer = document.querySelector('.project-dots');
     
     let currentIndex = 0;
-    
-    // Create dots
+
+
     projectCards.forEach((_, index) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
@@ -224,7 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navigateToProject(currentIndex);
     });
     
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
             prevBtn.click();
@@ -233,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Touch navigation
+
     let touchStartX = 0;
     let touchEndX = 0;
     
@@ -253,8 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-    
-    // Update dots on scroll
+
     let scrollTimeout;
     projectContainer.addEventListener('scroll', () => {
         clearTimeout(scrollTimeout);
