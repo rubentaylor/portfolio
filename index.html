@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="media.css">
     <link rel="shortcut icon" href="./assets/r-letter.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+    <!-- GSAP Animation Library -->
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
@@ -79,35 +84,65 @@
             </div>
             <div class="split-right">
                 <div class="hero-image">
-                    <img src="./assets/about-pic.png" alt="Ruben Taylor">
+                    <img src="./assets/profile-pic.jpeg" alt="Ruben Taylor">
+                    <span class="handwritten-note">this is me!</span>
                 </div>
             </div>
         </div>
     </section>
-    <section id="about">
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-            <div class="section__pic-container">
-                <img src="./assets/about-me.jpeg" alt="Profile Picture" class="about-pic">
-            </div>
-            <div class="about-details-container">
-                <div class="about-containers">
-                    <div class="details-container">
-                        <img src="./assets/experience.png" alt="experience icon" class="icon">
-                        <h3>Awards</h3>
-                        <p>NCSF Scholar w/ Honors + Scholarship <br>Cyberstart America Scholar and Finalist <br>National Cyber Scholar w/ Honors 2024 <br>Nation Cyber Scholar w/ Honors 2023</p>
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p>I'm a third-year computer science student at Georgia Tech, specializing in cybersecurity and software development. My journey in tech has been marked by continuous learning and practical application of my skills through various projects and competitions.</p>
+                <div class="achievements">
+                    <div class="achievement-card">
+                        <i class="fas fa-award"></i>
+                        <h3>Awards & Achievements</h3>
+                        <ul>
+                            <li>NCSF Scholar w/ Honors + Scholarship</li>
+                            <li>Cyberstart America Scholar and Finalist</li>
+                            <li>National Cyber Scholar w/ Honors 2024</li>
+                            <li>National Cyber Scholar w/ Honors 2023</li>
+                        </ul>
                     </div>
-                    <div class="details-container">
-                        <img src="./assets/education.png" alt="experience icon" class="icon">
+                    <div class="achievement-card">
+                        <i class="fas fa-graduation-cap"></i>
                         <h3>Education</h3>
-                        <p>B.Sc. Bachelors Degree - 2027 <br />Georgia Institute of Technology <br>Dean's List</p>
+                        <ul>
+                            <li>B.Sc. Computer Science - 2027</li>
+                            <li>Georgia Institute of Technology</li>
+                            <li>Dean's List</li>
+                            <li>Threads: System & Architecture and Info Internetworks</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="text-container">
-                    <p>
-                        I'm Ruben, a third-year computer science student at Georgia Tech. With a keen interest in Software Engineering, 
-                        I'm dedicated to expanding my knowledge and skills both inside and outside the classroom. As I progress through my academic 
-                        journey, I'm eagerly looking forward to applying what I've learned in real-world sitations.</p>
+            </div>
+            <div class="skills-container">
+                <h3>Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">C++</span>
+                            <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">HTML/CSS</span>
+                            <span class="skill-item">SQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Technologies & Tools</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">Linux</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">React</span>
+                            <span class="skill-item">Node.js</span>
+                            <span class="skill-item">MongoDB</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

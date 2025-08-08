@@ -314,3 +314,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 150);
     });
 });
+
+// GSAP Animation for Hero Image
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap !== 'undefined') {
+        gsap.from('.hero-image', { 
+            duration: 1.5, 
+            x: 100, 
+            opacity: 0, 
+            ease: 'power4.out', 
+            delay: 0.2 
+        });
+    }
+});
