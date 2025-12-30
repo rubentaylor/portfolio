@@ -641,11 +641,11 @@ body.dark-mode .nav-btn:hover {
 }
 
 .prev-btn {
-    left: 1rem;
+    left: -1rem;
 }
 
 .next-btn {
-    right: 1rem;
+    right: -1rem;
 }
 
 @media (max-width: 768px) {
