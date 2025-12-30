@@ -539,12 +539,6 @@ body.dark-mode .handwritten-note {
     border-radius: 2rem;
 }
 
-.arrow {
-    position: absolute;
-    right: -5rem;
-    bottom: 2.5rem;
-}
-
 .details-container {
     padding: 1.5rem;
     flex: 1;
@@ -958,9 +952,6 @@ body.dark-mode .tag:hover {
 }
 
 
-body.dark-mode .arrow {
-    filter: invert(1);
-}
 body.dark-mode .container {
     background-color: #1f2937;
     box-shadow: 0 0 10px rgba(100, 255, 218, 0.1);
@@ -1081,11 +1072,6 @@ body.dark-mode .tag:hover {
 
 body.dark-mode #socials-container h2 {
     color: #ccd6f6; 
-}
-
-body.dark-mode .arrow {
-    filter: invert(1);
-    transition: filter 0.3s ease;
 }
 
 body.dark-mode .contact-info-upper-container {
@@ -1340,12 +1326,6 @@ body.dark-mode .skill-item {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
-}
-
-.arrow {
-    position: absolute;
-    right: -5rem;
-    bottom: 2.5rem;
 }
 
 /* Dark Mode Specific Styles */
