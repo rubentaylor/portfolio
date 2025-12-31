@@ -43,7 +43,11 @@ function initializeDarkMode() {
 document.addEventListener("DOMContentLoaded", function() {
     initializeDarkMode();
 
-    const form = document.getElementById("contact-form");
+    const form = document.querySelector("form");
+    const fullName = document.getElementById("name");
+    const email = document.getElementById("email");
+    const subject = document.getElementById("subject");
+    const message = document.getElementById("message");
 
     function sendMail() {
         const captchaResponse = grecaptcha.getResponse();
@@ -53,27 +57,29 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         let params = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            subject: document.getElementById("subject").value,
-            message: document.getElementById("message").value,
+            name: fullName.value,
+            email: email.value,
+            subject: subject.value,
+            message: message.value,
+            'g-recaptcha-response': captchaResponse
         };
 
         emailjs.send("service_ldft4ab", "template_nwnm6j7", params)
-            .then(() => {
+            .then(function(response) {
                 alert("Email Sent!");
                 form.reset();
-                grecaptcha.reset();
-            })
-            .catch(error => {
-                console.error("Failed to send email:", error);
+            }, function(error) {
+                console.error("Failed to send email. Error:", error);
                 alert("Failed to send email. Please try again later.");
             });
     }
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        sendMail();
-    });
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            sendMail();
+        });
+    }
+ 
     particlesJS("particles-js", {
         particles: {
             number: { 
