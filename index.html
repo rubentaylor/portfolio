@@ -9,6 +9,7 @@
     gtag('js', new Date());
     gtag('config', 'G-XDPRKCLBTH');
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruben Taylor</title>
@@ -302,7 +303,8 @@
                     <div class="field-label">Message:</div>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit" onclick="sendMail()">Send Message</button>
+                <div class="g-recaptcha" data-sitekey="6LcQyjssAAAAAK8AzQ60MncGa1B5ZyUmy_xO2CTU"></div>
+                <button type="submit">Send Message</button>
             </form>
         </div>
         <div class="contact-info-upper-container">

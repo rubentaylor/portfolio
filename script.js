@@ -43,35 +43,37 @@ function initializeDarkMode() {
 document.addEventListener("DOMContentLoaded", function() {
     initializeDarkMode();
 
-    const form = document.querySelector("form");
-    const fullName = document.getElementById("name");
-    const email = document.getElementById("email");
-    const subject = document.getElementById("subject");
-    const message = document.getElementById("message");
+    const form = document.getElementById("contact-form");
 
-    function sendMail(event) {
-        event.preventDefault();
+    function sendMail() {
+        const captchaResponse = grecaptcha.getResponse();
+        if (!captchaResponse) {
+            alert("Please complete the reCAPTCHA.");
+            return;
+        }
+
         let params = {
-            name: fullName.value,
-            email: email.value,
-            subject: subject.value,
-            message: message.value,
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
         };
+
         emailjs.send("service_ldft4ab", "template_nwnm6j7", params)
-            .then(function(response) {
+            .then(() => {
                 alert("Email Sent!");
                 form.reset();
-            }, function(error) {
-                console.error("Failed to send email. Error:", error);
+                grecaptcha.reset();
+            })
+            .catch(error => {
+                console.error("Failed to send email:", error);
                 alert("Failed to send email. Please try again later.");
             });
     }
-
-    if (form) {
-        form.addEventListener("submit", sendMail);
-    }
-
-
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        sendMail();
+    });
     particlesJS("particles-js", {
         particles: {
             number: { 
@@ -314,3 +316,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 150);
     });
 });
+
