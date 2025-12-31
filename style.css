@@ -1629,3 +1629,8 @@ input, textarea {
     margin: 0;
     font-size: var(--font-size-base);
 }
+
+.g-recaptcha {
+    margin: 16px auto;
+    width: fit-content;
+}

@@ -43,7 +43,7 @@ function initializeDarkMode() {
 document.addEventListener("DOMContentLoaded", function() {
     initializeDarkMode();
 
-    const form = document.querySelector("form");
+    const form = document.getElementById("contact-form");
     const fullName = document.getElementById("name");
     const email = document.getElementById("email");
     const subject = document.getElementById("subject");
@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(function(response) {
                 alert("Email Sent!");
                 form.reset();
+                grecaptcha.reset();
             }, function(error) {
                 console.error("Failed to send email. Error:", error);
                 alert("Failed to send email. Please try again later.");
